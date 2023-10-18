@@ -40,3 +40,6 @@ fi
 
 VERB="download"
 az storage blob ${VERB} ${CONNECTION_METHOD} --container-name ${INPUT_CONTAINER_NAME} --file ${INPUT_SOURCE_DIR}/${INPUT_FILE} --name ${INPUT_FILE}
+
+pwd 
+ls -hal
