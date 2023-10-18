@@ -38,16 +38,5 @@ if [[ -n ${INPUT_EXTRA_ARGS} ]]; then
   EXTRA_ARGS=${INPUT_EXTRA_ARGS}
 fi
 
-VERB="upload-batch"
-CONTAINER_NAME_FLAG="--destination"
-if [[ -n ${INPUT_SYNC} ]]; then
-  VERB="sync"
-  CONTAINER_NAME_FLAG="--container"
-fi
-
-CLI_VERSION=""
-if [[ -n ${INPUT_CLI_VERSION} ]]; then
-  CLI_VERSION="==${INPUT_CLI_VERSION}"
-fi
-
-az storage blob ${VERB} ${CONNECTION_METHOD} --source ${INPUT_SOURCE_DIR} ${CONTAINER_NAME_FLAG} ${INPUT_CONTAINER_NAME} ${ARG_OVERWRITE} ${EXTRA_ARGS}
+VERB="download"
+az storage blob ${VERB} ${CONNECTION_METHOD} --container-name ${INPUT_CONTAINER_NAME} --file ${INPUT_SOURCE_DIR}/${INPUT_FILE} --name ${INPUT_FILE}

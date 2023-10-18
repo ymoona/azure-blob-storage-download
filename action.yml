@@ -29,6 +29,13 @@ inputs:
   overwrite:
     description: "Overwrite existing files in the destination container. Defaults to false"
     required: false
+  container_name:
+    decription: "the container name"
+    required: true
+  file: 
+    description: "The name of the file to download"
+    required: true
+  
 runs:
   using: "docker"
   image: "Dockerfile"
