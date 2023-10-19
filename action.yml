@@ -1,37 +1,22 @@
 name: "Azure Blob Storage Download"
 author: "Ymoona"
-description: "Downloads assets from Azure Blob Storage"
+description: "Downloads a file from Azure Blob Storage"
 branding:
   icon: "box"
   color: "green"
 inputs:
   connection_string:
-    description: "The connection string for the storage account. Used if value is set. Either connection_string or sas_token must be supplied"
-    required: false
-  sas_token:
-    description: "The shared access signature token for the storage account. Either connection_string or sas_token must be supplied"
-    required: false
-  account_name:
-    description: "The name of the storage account. Required if sas_token is used"
-    required: false
+    description: "The connection string for the storage account."
+    required: true
   container_name:
-    description: "The name of the storage account container these assets will be uploaded to"
+    description: "The name of the storage account container a file will be uploaded to"
     required: true
-  source_dir:
-    description: "The name of the directory you want to upload"
-    required: true
-  extra_args:
-    description: "Extra arguments that can be passed to `az storage blob upload-batch|sync`. Useful for passing flags like `--pattern` or `--destination-path`"
-    required: false
-  sync:
-    description: "Use `az storage blob sync` to synchronize blobs recursively"
-    required: false
-  overwrite:
-    description: "Overwrite existing files in the destination container. Defaults to false"
-    required: false
   file: 
     description: "The name of the file to download"
     required: true
+  source_dir:
+    descripton: "The source directory"
+    required: true/
   
 runs:
   using: "docker"
